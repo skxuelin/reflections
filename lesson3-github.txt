@@ -1,0 +1,12 @@
+Lesson 3. GitHub
+
+Create new repository at GitHub
+
+PUSHING YOUR STUFF TO GITHUB
+----------------------------
+Step 1. In your local repository, point it to the remote
+git remote add origin https://github.com/skxuelin/reflections.git
+
+Step 2. Push the master branch to origin
+git push -u origin master
+

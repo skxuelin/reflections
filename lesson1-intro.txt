@@ -11,7 +11,7 @@ CD into the folder where you want to put the repository.
 Commands:
 git --version: finds out which version of git you are in.
 git clone: copy a repository from somewhere else. This time we copied from a URL
-git log: to see the log of commits, etc. You have to CD into the repository folder first. 
+git log: to see the log of commits, etc. You have to CD into the repository folder first. To get out from log, type q
 git diff first ID second ID: after you find out the file ID from the git log, you can compare older and newer versions
 git checkout: you can git checkout the ID, to replace the file with the version with the ID
 

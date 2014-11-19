@@ -4,9 +4,69 @@ Nov 19th, 2014
 
 ls -a: to see hidden files
 
-.git file: is the metadata of the repository. If this file exists, tha tmeans the directory it is in is a repository.
 
+CREATE REPOSITORY
+------------------
 
-Commands:
+.git file: is the metadata of the repository. If this file exists, that means the directory it is in is a repository.
+
 git init: make this folder a repository
 git status: find the status of the repository. The first time you ran this, there is no commit yet. So you will see "initial commit" and "untracked files"
+
+ADDING AND COMMITTING
+----------------------
+
+|working directory| <add>> |staging area| <commit>> |repository|
+
+git add: add file to a staging area. it is not yet in the permanent repository place
+
+git diff without arguments: will diff between working area and staging area
+git diff --staged: will diff between staging area and repository's most recent commit
+git diff commitID1 commitID2: will diff files specified within repository
+
+git reset --hard: get rid of changes in the working directory and staging area
+
+git commit <file name>: commit the file into the repository
+
+BRANCHING
+----------
+git branch: view what branches there are, the one that is currently checked out is denoted with *
+git branch {easy-mode}: create a branch called easy-mode
+git checkout {easy-mode}: checkout the easy-mode branch
+git branch -b {lala}: create a branch called lala then check it out
+
+you want to have master as your production copy, so each time you're going to do something, create branch!
+
+To see branches and master relationship in graph (this example compare between master branch and coins branch):
+git log --graph --oneline master coins
+
+"Detached HEAD" message means that you are about to make changes to a file without checking out a branch first. That way the commit doesn't belong to any branch and will be unreachable.
+
+MERGING
+--------
+
+if both lines appear in both branches, then include in final version
+if one line appear in one side, then we don't know,  because maybe the other side deleted that line on purpose. So then, you compare it with the original file before the files got splitted into two versions. If it is used to be there, but now it is not, that means it's deleted on purpose. And any lines that are not in the original version, add in final version.
+
+Merge {lala} INTO master. That means include all changes happened in {lala} branch into master.
+
+git show: show the changes after the parent
+
+git merge will also include the currently checked-out branch in the merged version. So if you have branch1 checked out, and you run git merge branch2 branch3, the merged version will combine branch1 as well as branch2 and branch3
+
+Restore your files to their state before you started the merge by running git merge --abort
+
+SOLVING MERGE CONFLICT
+----------------------
+<<<<<< HEAD: is my code
+
+========
+
+|||||| merged common ancestors: original codes that both version has
+
+
+>>>>>> master
+
+========
+
+Note: I'm updating this file now to test multiple commits to GitHub
