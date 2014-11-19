@@ -1,0 +1,12 @@
+Lesson 2. How to Use Git and Git Hub
+
+Nov 19th, 2014
+
+ls -a: to see hidden files
+
+.git file: is the metadata of the repository. If this file exists, tha tmeans the directory it is in is a repository.
+
+
+Commands:
+git init: make this folder a repository
+git status: find the status of the repository. The first time you ran this, there is no commit yet. So you will see "initial commit" and "untracked files"
