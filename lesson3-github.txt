@@ -1,12 +1,84 @@
 Lesson 3. GitHub
 
-Create new repository at GitHub
+CREATE NEW REPOSITORY AT GITHUB
+--------------------------------
+Go to github.com
 
-PUSHING YOUR STUFF TO GITHUB
+PUSHING/PULLING YOUR STUFF TO GITHUB
 ----------------------------
 Step 1. In your local repository, point it to the remote
 git remote add origin https://github.com/skxuelin/reflections.git
 
-Step 2. Push the master branch to origin
+Step 2. Push the master branch to origin. To push all your local changes to remote repository
 git push -u origin master
+
+Step 3. Pull the remote repository's changes (like other people's stuff) to your local
+git pull origin master
+
+FORKING A REPOSITORY
+---------------------
+It's like cloning, but intead of copying to your local, you copy a remote repository to another remote repository, so the original repository can get some credit.
+
+git clone: copy from GitHub to local machine
+fork: copy from Github to Github
+git clone: copy from local to another local
+branch: happens on a single repository
+
+After you fork and get the repository copied to your own GitHub account, you want to edit it locally.
+So you do git clone to get it to your local machine.
+When you do a git clone, the remote origin will already be setup pointing to the your GitHub repository.
+Verify by typing:
+	git remote -v
+
+
+MERGING BOTH LOCAL AND REMOTE REPOSITORY
+----------------------------------------
+Conflict issues can come up with you collaborate with other people
+
+Your local machine stores a local copy of the remote repository as origin/.... This branch is not visible, unless you do -a. Like: git branch - a.
+
+Update local copy of the remote repository:
+git fetch remote_name, which will fetch all branches from the given remote, or git fetch with no arguments, which fetches all branches from the origin remote.
+
+git pull master = git fetch master AND git merge master origin/master(local copy of the origin)
+
+If there are updated changes on the remote repository, it will give message like below:
+		Siska (master) recipes $ git status
+		On branch master
+		Your branch and 'origin/master' have diverged,
+		and have 1 and 1 different commit each, respectively.
+		  (use "git pull" to merge the remote branch into yours)
+
+		nothing to commit, working directory clean
+
+
+Then, you want to merge the origin/master with your changes. If there is conflict, it will give message like below:
+		Siska (master) recipes $ git pull
+		Auto-merging chili-recipe.txt
+		CONFLICT (content): Merge conflict in chili-recipe.txt
+		Automatic merge failed; fix conflicts and then commit the result
+
+
+After you fix the conflict, then add, and commit, the commit needs to have -i option.
+git commit -i chili-recipe.txt
+
+FAST-FORWARD MERGES
+-------------------
+if the branch you are merging to is the ancestor of the branch you are merging from.
+
+PULL_REQUEST
+------------
+request to merge one's branch to master
+it's request for me to pull the requestor's changes in the branch into the master branch.
+
+GIT VERSUS GITHUB
+-----------------
+GIT is the version control tool that GitHub is based on.
+GIT is the local version, GITHub is the social part of it, on the cloud.
+
+
+
+
+
+
 
